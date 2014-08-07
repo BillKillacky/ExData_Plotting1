@@ -22,10 +22,6 @@
 # 9. Sub_metering_3: energy sub-metering No. 3 (in watt-hour of active energy). 
 #    It corresponds to an electric water-heater and an air-conditioner.
 
-setwd("C:/Users/Bill Killacky/Documents/Coursera/ExploratoryDataAnalysis")
-getwd()
-rm(m,y,bad,good,u,x,s)
-
 fileName <- "household_power_consumption.txt"
 epc <- read.table(fileName, sep=";", header=TRUE, na.strings="?")
 
@@ -41,8 +37,7 @@ rm(epc, fileName)
 
 names(s)
 
-
-#png(file = "plot4.png", width = 480, height = 480)  ## Open PNG device; create file in my working directory
+png(file = "plot4.png", width = 480, height = 480)  ## Open PNG device; create file in my working directory
 par(mfrow = c(2, 2))
 
 #1 of 4
@@ -69,7 +64,7 @@ legend("topright", lty=1, bty="n",
 
 #4 of 4
 plot(s$Time, s$Global_reactive_power, xlab="datetime", ylab="Global_reactive_power", type="l")
-#dev.off()
+dev.off()
 
 rm(s, ylimits1, ylimits2, ylimits3, ylimits)
 par(mfrow = c(1, 1))

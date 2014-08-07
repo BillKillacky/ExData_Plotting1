@@ -22,10 +22,6 @@
 # 9. Sub_metering_3: energy sub-metering No. 3 (in watt-hour of active energy). 
 #    It corresponds to an electric water-heater and an air-conditioner.
 
-setwd("C:/Users/Bill Killacky/Documents/Coursera/ExploratoryDataAnalysis")
-getwd()
-rm(m,y,bad,good,u,x,s)
-
 fileName <- "household_power_consumption.txt"
 epc <- read.table(fileName, sep=";", header=TRUE, na.strings="?")
 
@@ -41,8 +37,7 @@ rm(epc, fileName)
 
 names(s)
 
-
-#png(file = "plot3.png", width = 480, height = 480)  ## Open PNG device; create file in my working directory
+png(file = "plot3.png", width = 480, height = 480)  ## Open PNG device; create file in my working directory
 ylimits1 = max(s$Sub_metering_1)
 ylimits2 = max(s$Sub_metering_2)
 ylimits3 = max(s$Sub_metering_3)
@@ -56,7 +51,7 @@ points(s$Time, s$Sub_metering_3, type="l", col="blue")
 legend("topright", lty=1,
        col = c("black", "red", "blue"), 
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-#dev.off()
+dev.off()
 
 rm(s, ylimits, ylimits1, ylimits2, ylimits3)
 
